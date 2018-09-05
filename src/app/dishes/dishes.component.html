@@ -1,10 +1,16 @@
-<h2>Produkty</h2>
-<ul class="dishes">
-  <li *ngFor="let dish of dishes">
-    <div><span><b>{{dish.name}}</b></span>
-      <span> Opis: {{dish.description}}
-      </span><span>Cena: {{dish.price}} zł</span>
+<table class="dishes">
+  <tr>
+    <th>Nazwa</th>
+    <th>Opis</th>
+    <th>Cena</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let dish of dishes">
+    <td><b>{{dish.name}}</b></td>
+    <td>{{dish.description}}</td>
+    <td>{{dish.price}} zł</td>
+    <td>
       <button>+</button>
-    </div>
-  </li>
-</ul>
+    </td>
+  </tr>
+</table>
