@@ -2,10 +2,9 @@
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
 }
 
-.dishes li {
+.dishes tr {
   position: relative;
   left: 0;
   background-color: #EEE;
@@ -14,23 +13,13 @@
   border-radius: 4px;
 }
 
+.dishes th {
+  background-color: lightgray;
+}
+
 .dishes .text {
   position: relative;
   top: -3px;
-}
-
-.dishes .dish {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
 }
 
 .dishes button {
