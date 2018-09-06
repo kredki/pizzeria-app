@@ -17,4 +17,14 @@ export class OrderService {
   getDishes(): Dish[] {
     return this.dishes;
   }
+
+  delete(dish: Dish) {
+    let i;
+    for(i = 0; this.dishes.length; i++) {
+      if(this.dishes[i] === dish) {
+        this.dishes.splice(i, 1);
+        break;
+      }
+    }
+  }
 }

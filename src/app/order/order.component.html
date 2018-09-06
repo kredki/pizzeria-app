@@ -3,7 +3,7 @@
     <td><b>{{dish.name}}</b></td>
     <td>{{dish.price}} zł</td>
     <td>
-      <button>X</button>
+      <button (click)="orderService.delete(dish)">X</button>
     </td>
   </tr>
 </table>
