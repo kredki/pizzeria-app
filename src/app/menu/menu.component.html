@@ -1,0 +1,18 @@
+<div style="text-align:center">
+  <header>
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </header>
+  <nav>
+    <button (click)="getPizzas($event)" >Pizza</button>
+    <button>Makarony</button>
+    <button>Napoje</button>
+  </nav>
+  <section>
+    <article id="order">Twoje zamówienie</article>
+    <article id="dishes">
+      <app-dishes></app-dishes>
+    </article>
+  </section>
+</div>

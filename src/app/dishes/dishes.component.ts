@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, OnChanges, AfterViewInit} from '@angular/core';
 import {Dish} from '../dish';
 import {DishService} from '../dish.service';
 import {Subscription} from 'rxjs';
@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './dishes.component.html',
   styleUrls: ['./dishes.component.css']
 })
-export class DishesComponent implements OnInit, OnDestroy {
+export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   dishes: Dish[];
   sub: Subscription;
 
@@ -18,8 +18,7 @@ export class DishesComponent implements OnInit, OnDestroy {
 
   getDishes(): void {
     this.sub = this.dishService.getDishes()
-      .subscribe(res => this.dishes = res);
-
+      .subscribe(res => {this.dishes = res; console.log(res); });
   }
 
   getDrinks(): void {
@@ -30,7 +29,7 @@ export class DishesComponent implements OnInit, OnDestroy {
 
   getPizzas(): void {
     this.sub = this.dishService.getPizzas()
-      .subscribe(res => this.dishes = res);
+      .subscribe(res => {this.dishes = res; console.log(res); });
 
   }
 
@@ -48,4 +47,11 @@ export class DishesComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  ngOnChanges() {
+    console.log(this.dishes);
+  }
+
+  ngAfterViewInit() {
+    console.log(this.dishes);
+  }
 }

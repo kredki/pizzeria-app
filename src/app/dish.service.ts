@@ -30,8 +30,9 @@ export class DishService {
   }
 
   getPizzas(): Observable<Dish[]> {
-    return this.http.get<Dish[]>('/api/dishes').pipe(
+    const pizzas = this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
+    return pizzas;
   }
 }
