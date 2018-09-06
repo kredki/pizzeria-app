@@ -1,5 +1,5 @@
 <table class="order">
-  <tr *ngFor="let dish of dishes">
+  <tr *ngFor="let dish of orderService.getDishes()">
     <td><b>{{dish.name}}</b></td>
     <td>{{dish.price}} zł</td>
     <td>

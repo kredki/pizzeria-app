@@ -3,6 +3,7 @@ import {Dish} from '../dish';
 import {DishService} from '../dish.service';
 import {Subscription} from 'rxjs';
 import {OrderService} from '../order.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-dishes',
@@ -13,7 +14,8 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
   dishes: Dish[];
   sub: Subscription;
 
-  constructor(private readonly dishService: DishService, private readonly orderService: OrderService) {
+  constructor(private readonly dishService: DishService, private readonly orderService: OrderService,
+              private readonly route: ActivatedRoute) {
   }
 
 
@@ -45,7 +47,15 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
   }
 
   ngOnInit() {
-    this.getDishes();
+    this.route.paramMap.subscribe(params => {
+      const type = params.get('type');
+
+      if(type === 'pizza') {
+        this.getPizzas();
+      } else {
+        this.getDishes();
+      }
+    });
   }
 
   ngOnDestroy(): void {

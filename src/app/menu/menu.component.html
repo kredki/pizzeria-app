@@ -1,13 +1,8 @@
 <div style="text-align:center">
-  <header>
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-  </header>
   <nav>
-    <button (click)="getPizzas($event)" >Pizza</button>
-    <button>Makarony</button>
-    <button>Napoje</button>
+    <button [routerLink]="['/dishes', 'pizza']">Pizza</button>
+    <button [routerLink]="['/dishes', 'spagetti']">Makarony</button>
+    <button [routerLink]="['/dishes', 'drink']">Napoje</button>
   </nav>
   <section>
     <article id="order">

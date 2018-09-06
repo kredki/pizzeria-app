@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Dish} from '../dish';
+import {OrderService} from '../order.service';
 
 @Component({
   selector: 'app-order',
@@ -7,15 +8,8 @@ import {Dish} from '../dish';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  dishes: Dish[] = [];
 
-  constructor() { }
-
-  add(dish: Dish) {
-    console.log('before ' + this.dishes);
-    this.dishes.push(dish);
-    console.log('after ' + this.dishes);
-  }
+  constructor(public orderService: OrderService) { }
 
   ngOnInit() {
   }

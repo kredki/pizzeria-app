@@ -6,10 +6,15 @@ import {Dish} from './dish';
   providedIn: 'root'
 })
 export class OrderService {
+  dishes: Dish[] = [];
 
-  constructor(private orderComponent: OrderComponent) { }
+  constructor() { }
 
   addToOrder(dish: Dish) {
-    this.orderComponent.add(dish);
+    this.dishes.push(dish);
+  }
+
+  getDishes(): Dish[] {
+    return this.dishes;
   }
 }

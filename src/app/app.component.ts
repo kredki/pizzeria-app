@@ -8,5 +8,5 @@ import {DishService} from './dish.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Pizzeria App2';
+  title = 'Pizzeria App';
 }

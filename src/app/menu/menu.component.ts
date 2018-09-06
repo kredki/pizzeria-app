@@ -7,7 +7,6 @@ import {DishesComponent} from '../dishes/dishes.component';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  title = 'Pizzeria App';
 
   constructor(private dishesComponent: DishesComponent) { }
 
