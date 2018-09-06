@@ -52,6 +52,10 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
 
       if(type === 'pizza') {
         this.getPizzas();
+      } else if(type === 'spagetti') {
+        this.getSpagettis();
+      } else if(type === 'drink') {
+        this.getDrinks();
       } else {
         this.getDishes();
       }
