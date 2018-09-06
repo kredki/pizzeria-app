@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit, OnChanges, AfterViewInit} from '@angular/c
 import {Dish} from '../dish';
 import {DishService} from '../dish.service';
 import {Subscription} from 'rxjs';
+import {OrderService} from '../order.service';
 
 @Component({
   selector: 'app-dishes',
@@ -12,7 +13,7 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
   dishes: Dish[];
   sub: Subscription;
 
-  constructor(private dishService: DishService) {
+  constructor(private readonly dishService: DishService, private readonly orderService: OrderService) {
   }
 
 
@@ -37,6 +38,10 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
     this.sub = this.dishService.getSpagettis()
       .subscribe(res => this.dishes = res);
 
+  }
+
+  addToOrder(dish: Dish): void {
+    this.orderService.addToOrder(dish);
   }
 
   ngOnInit() {

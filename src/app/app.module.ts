@@ -6,19 +6,21 @@ import { DishesComponent } from './dishes/dishes.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { MenuComponent } from './menu/menu.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DishesComponent,
-    MenuComponent
+    MenuComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [DishesComponent],
+  providers: [DishesComponent, OrderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

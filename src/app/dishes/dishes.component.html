@@ -10,7 +10,7 @@
     <td>{{dish.description}}</td>
     <td>{{dish.price}} zł</td>
     <td>
-      <button>+</button>
+      <button (click)="addToOrder(dish)">+</button>
     </td>
   </tr>
 </table>
