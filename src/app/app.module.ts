@@ -8,6 +8,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { OrderComponent } from './order/order.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     DishesComponent,
     MenuComponent,
     OrderComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

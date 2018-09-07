@@ -1,5 +1,17 @@
 header {
   background-color: red;
+  display: flex;
+  justify-content: space-between;
+}
+
+header button {
+  background-color: red;
+  color: white;
+  border: 0;
+}
+
+header button:hover {
+  color: aqua;
 }
 
 header > h1 {

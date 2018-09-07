@@ -1,0 +1,12 @@
+p {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+button {
+  background-color: red;
+  color: white;
+  margin-top: 5px;
+  padding: 5px;
+}
