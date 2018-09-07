@@ -45,19 +45,14 @@ export class OrderService {
     return this.cost;
   }
 
-  sendOrder(): Observable<Order> {
+  sendOrder(order: Order): Observable<Order> {
+    let dishesIds: number[] = [];
+    let i;
+    for(i = 0; i < this.dishes.length; i++) {
+      dishesIds.push(this.dishes[i].id);
+    }
+    order.dishIds = dishesIds;
     this.isOrderFinished = false;
-    let order = new Order();
-    order.city = 'city';
-    order.dishIds = [1, 2, 3];
-    order.email = 'email';
-    order.firstName = 'first name';
-    order.lastName = 'last name';
-    order.flat = 'flat';
-    //order.id = 2;
-    order.floor = 'floor';
-    order.street = 'street';
-    order.telephone = 'telephone';
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 }

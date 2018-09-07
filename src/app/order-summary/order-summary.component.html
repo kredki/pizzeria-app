@@ -1,8 +1,11 @@
-<p>Imie: <input type="text"></p>
-<p>Nazwisko: <input type="text"></p>
-<p>Telefon: <input type="text"></p>
-<p>Email: <input type="text"></p>
-<p>Miasto: <input type="text"></p>
-<p>Ulica: <input type="text"></p>
-<p>Lokal: <input type="text"> Piętro: <input type="text"></p>
-<button (click)="sendOrder()">Wyślij zamówienie</button>
+<form (ngSubmit)="sendOrder()" #loginForm="ngForm">
+  <p>Imie: <input type="text" name="firstName" [(ngModel)]="order.firstName"></p>
+  <p>Nazwisko: <input type="text" name="lastName" [(ngModel)]="order.lastName"></p>
+  <p>Telefon: <input type="text" name="telephone" [(ngModel)]="order.telephone"></p>
+  <p>Email: <input type="text" name="email" [(ngModel)]="order.email"></p>
+  <p>Miasto: <input type="text" name="city" [(ngModel)]="order.city"></p>
+  <p>Ulica: <input type="text" name="street" [(ngModel)]="order.street"></p>
+  <p>Lokal: <input type="text" name="flat" [(ngModel)]="order.flat"> Piętro: <input type="text" name="floor"
+                                                                              [(ngModel)]="order.floor"></p>
+  <button type="submit">Wyślij zamówienie</button>
+</form>
