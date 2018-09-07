@@ -1,13 +1,13 @@
-<section>
+<form (ngSubmit)="checkLogin()" #loginForm="ngForm">
   <p>
     Login:
   </p>
-  <p><input type="text"></p>
+  <p><input type="text" [(ngModel)]="login" name="login"></p>
   <p>
     Hasło:
   </p>
-  <p><input type="password"></p>
+  <p><input type="password" [(ngModel)]="password" name="password"></p>
   <p>
-    <button>Login</button>
+    <button type="submit">Login</button>
   </p>
-</section>
+</form>
