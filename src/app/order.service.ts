@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {Dish} from './dish';
 import {Order} from './order';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
 const httpOptions = {
