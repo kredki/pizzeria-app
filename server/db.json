@@ -14,7 +14,7 @@
       "isAvailable": true,
       "description": "Sos, ser, pieczarki",
       "type": "pizza",
-      "price": 23.50
+      "price": 23.5
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "isAvailable": true,
       "description": "Czarna herbata",
       "type": "drink",
-      "price": 13.90
+      "price": 13.9
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "isAvailable": true,
       "description": "Sos boloński z szynką i kukurydzą",
       "type": "spagetti",
-      "price": 17.50
+      "price": 17.5
     }
   ],
   "orders": [

@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
-import {OrderComponent} from './order/order.component';
 import {Dish} from './dish';
+import {Order} from './order';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +17,7 @@ export class OrderService {
   cost = 0;
   isOrderFinished = false;
 
-  constructor() { }
+  constructor(readonly http: HttpClient) { }
 
   addToOrder(dish: Dish) {
     this.dishes.push(dish);
@@ -36,5 +43,21 @@ export class OrderService {
 
   getCost(): number {
     return this.cost;
+  }
+
+  sendOrder(): Observable<Order> {
+    this.isOrderFinished = false;
+    let order = new Order();
+    order.city = 'city';
+    order.dishIds = [1, 2, 3];
+    order.email = 'email';
+    order.firstName = 'first name';
+    order.lastName = 'last name';
+    order.flat = 'flat';
+    //order.id = 2;
+    order.floor = 'floor';
+    order.street = 'street';
+    order.telephone = 'telephone';
+    return this.http.post<Order>('/api/orders', order, httpOptions);
   }
 }
