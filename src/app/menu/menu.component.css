@@ -37,3 +37,9 @@ section {
   align-items: center;
   flex-direction: row;
 }
+
+#order-summary {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}

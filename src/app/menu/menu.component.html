@@ -9,8 +9,11 @@
       Twoje zamówienie
       <app-order></app-order>
     </article>
-    <article id="dishes">
+    <article id="dishes" *ngIf="!orderService.isOrderFinished">
       <app-dishes></app-dishes>
+    </article>
+    <article id="order-summary" *ngIf="orderService.isOrderFinished">
+      <app-order-summary></app-order-summary>
     </article>
   </section>
 </div>

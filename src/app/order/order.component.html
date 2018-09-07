@@ -8,4 +8,4 @@
   </tr>
 </table>
 <p>Razem: {{orderService.getCost()}} zł</p>
-<button>Przejdź do podsumowania</button>
+<button (click)="orderService.isOrderFinished = true">Przejdź do podsumowania</button>

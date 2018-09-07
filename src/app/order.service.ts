@@ -8,6 +8,7 @@ import {Dish} from './dish';
 export class OrderService {
   dishes: Dish[] = [];
   cost = 0;
+  isOrderFinished = false;
 
   constructor() { }
 

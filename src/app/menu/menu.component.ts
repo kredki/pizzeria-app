@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DishesComponent} from '../dishes/dishes.component';
+import {OrderService} from '../order.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,7 @@ import {DishesComponent} from '../dishes/dishes.component';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private dishesComponent: DishesComponent) { }
+  constructor(private dishesComponent: DishesComponent, public orderService: OrderService) { }
 
   ngOnInit() {
   }

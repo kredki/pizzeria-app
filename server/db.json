@@ -44,7 +44,18 @@
   "orders": [
     {
       "id": 1,
-      "dishIds": [1, 5]
+      "dishIds": [
+        1,
+        5
+      ],
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "telephone": "123456789",
+      "email": "abc@dfg.pl",
+      "city": "Warszawa",
+      "street": "Sosnowa",
+      "flat": "12/10",
+      "floor": "5"
     }
   ],
   "users": [
