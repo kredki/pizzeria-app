@@ -1,7 +1,12 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Order} from '../../order';
 import {OrderService} from '../../order.service';
 import {Subscription} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Component({
   selector: 'app-admin-orders',
@@ -13,7 +18,7 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
   sub: Subscription;
   orderToShow: Order;
 
-  constructor(private orderService: OrderService) {
+  constructor(private orderService: OrderService, readonly http: HttpClient) {
   }
 
   showOrder(order) {
@@ -22,14 +27,20 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
 
   changeStatusToAccept() {
     this.orderToShow.status = 'accepted';
+    const id = this.orderToShow.id;
+    this.http.put<Order>('/api/orders/' + id, this.orderToShow, httpOptions).subscribe();
   }
 
   changeStatusToSend() {
     this.orderToShow.status = 'send';
+    const id = this.orderToShow.id;
+    this.http.put<Order>('/api/orders/' + id, this.orderToShow, httpOptions).subscribe();
   }
 
   changeStatusToDelivered() {
     this.orderToShow.status = 'delivered';
+    const id = this.orderToShow.id;
+    this.http.put<Order>('/api/orders/' + id, this.orderToShow, httpOptions).subscribe();
   }
 
   ngOnInit() {

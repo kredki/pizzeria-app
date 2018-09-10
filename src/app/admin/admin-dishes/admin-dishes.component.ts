@@ -1,7 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from '../../dish';
 import {DishService} from '../../dish.service';
 import {Subscription} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Component({
   selector: 'app-admin-dishes',
@@ -13,7 +18,7 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   sub: Subscription;
   dishToShow: Dish;
 
-  constructor(private dishService: DishService) { }
+  constructor(private dishService: DishService, readonly http: HttpClient) { }
 
   showDish(dish: Dish) {
     this.dishToShow = dish;
@@ -21,6 +26,8 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
 
   changeAvailability() {
     this.dishToShow.isAvailable = !this.dishToShow.isAvailable;
+    const id = this.dishToShow.id;
+    this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
   }
 
   ngOnInit() {
