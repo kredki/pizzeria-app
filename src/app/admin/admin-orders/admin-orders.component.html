@@ -15,7 +15,9 @@
   </tr>
   <tr *ngFor="let order of orders">
     <td>{{order.id}}</td>
-    <td><b>{{order.status}}</b></td>
+    <td *ngIf="order.status === 'accepted'">Przyjęte</td>
+    <td *ngIf="order.status === 'delivered'">Dostarczone</td>
+    <td *ngIf="order.status === 'send'">Wysłane</td>
     <td>{{order.dishIds}}</td>
     <td>{{order.street}}</td>
     <td>{{order.flat}}</td>
@@ -26,7 +28,44 @@
     <td>{{order.telephone}}</td>
     <td>{{order.email}}</td>
     <td>
-      <button>Podgląd</button>
+      <button (click)="showOrder(order)">Podgląd</button>
+    </td>
+  </tr>
+</table>
+
+<table class="orderToShow" *ngIf="orderToShow">
+  <tr>
+    <th>Id</th>
+    <th>Status</th>
+    <th>Id produktów</th>
+    <th>Ulica</th>
+    <th>Nr</th>
+    <th>Piętro</th>
+    <th>Miasto</th>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Tel.</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>{{orderToShow.id}}</td>
+    <td *ngIf="orderToShow.status === 'accepted'">Przyjęte</td>
+    <td *ngIf="orderToShow.status === 'delivered'">Dostarczone</td>
+    <td *ngIf="orderToShow.status === 'send'">Wysłane</td>
+    <td>{{orderToShow.dishIds}}</td>
+    <td>{{orderToShow.street}}</td>
+    <td>{{orderToShow.flat}}</td>
+    <td>{{orderToShow.floor}}</td>
+    <td>{{orderToShow.city}}</td>
+    <td>{{orderToShow.lastName}}</td>
+    <td>{{orderToShow.firstName}}</td>
+    <td>{{orderToShow.telephone}}</td>
+    <td>{{orderToShow.email}}</td>
+    <td>
+      <button (click)="changeStatusToAccept()">Przyjęto</button>
+      <button (click)="changeStatusToSend()">Wysłane</button>
+      <button (click)="changeStatusToDelivered()">Dostarczono</button>
     </td>
   </tr>
 </table>

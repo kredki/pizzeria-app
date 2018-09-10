@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Order} from '../../order';
 import {OrderService} from '../../order.service';
 import {Subscription} from 'rxjs';
@@ -11,8 +11,26 @@ import {Subscription} from 'rxjs';
 export class AdminOrdersComponent implements OnInit, OnDestroy {
   orders: Order[] = [];
   sub: Subscription;
+  orderToShow: Order;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService) {
+  }
+
+  showOrder(order) {
+    this.orderToShow = order;
+  }
+
+  changeStatusToAccept() {
+    this.orderToShow.status = 'accepted';
+  }
+
+  changeStatusToSend() {
+    this.orderToShow.status = 'send';
+  }
+
+  changeStatusToDelivered() {
+    this.orderToShow.status = 'delivered';
+  }
 
   ngOnInit() {
     this.orderService.getAllOrders()
@@ -20,6 +38,8 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
