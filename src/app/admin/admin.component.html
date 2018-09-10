@@ -1,8 +1,8 @@
-<section>
+<section *ngIf="loginService.adminLogged">
   <nav>
     <button (click)="showDishList()">Lista dań</button>
     <button (click)="showOrderList()">Zamówienia</button>
-    <button>Wyloguj</button>
+    <button (click)="loginService.adminLogged = false" routerLink="/">Wyloguj</button>
   </nav>
   <app-admin-dishes *ngIf="isDishListShown"></app-admin-dishes>
   <app-admin-orders *ngIf="isOrderListShown"></app-admin-orders>

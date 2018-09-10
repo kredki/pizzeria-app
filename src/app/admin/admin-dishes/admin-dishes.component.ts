@@ -3,6 +3,7 @@ import {Dish} from '../../dish';
 import {DishService} from '../../dish.service';
 import {Subscription} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {LoginService} from '../../login.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +19,7 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   sub: Subscription;
   dishToShow: Dish;
 
-  constructor(private dishService: DishService, readonly http: HttpClient) { }
+  constructor(private dishService: DishService, readonly http: HttpClient, public loginService: LoginService) { }
 
   showDish(dish: Dish) {
     this.dishToShow = dish;
