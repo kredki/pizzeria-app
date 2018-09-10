@@ -11,15 +11,26 @@ import {Subscription} from 'rxjs';
 export class AdminDishesComponent implements OnInit, OnDestroy {
   dishes: Dish[] = [];
   sub: Subscription;
+  dishToShow: Dish;
 
   constructor(private dishService: DishService) { }
 
+  showDish(dish: Dish) {
+    this.dishToShow = dish;
+  }
+
+  changeAvailability() {
+    this.dishToShow.isAvailable = !this.dishToShow.isAvailable;
+  }
+
   ngOnInit() {
-    this.sub = this.dishService.getDishes()
+    this.sub = this.dishService.getAllDishes()
       .subscribe(res => this.dishes = res);
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

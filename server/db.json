@@ -57,6 +57,38 @@
       "flat": "12/10",
       "floor": "5",
       "status": "accepted"
+    },
+    {
+      "id": 2,
+      "dishIds": [
+        1,
+        5
+      ],
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "telephone": "123456789",
+      "email": "abc@dfg.pl",
+      "city": "Warszawa",
+      "street": "Sosnowa",
+      "flat": "12/10",
+      "floor": "5",
+      "status": "delivered"
+    },
+    {
+      "id": 3,
+      "dishIds": [
+        1,
+        5
+      ],
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "telephone": "123456789",
+      "email": "abc@dfg.pl",
+      "city": "Warszawa",
+      "street": "Sosnowa",
+      "flat": "12/10",
+      "floor": "5",
+      "status": "send"
     }
   ],
   "users": [

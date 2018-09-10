@@ -7,12 +7,33 @@
     <th></th>
   </tr>
   <tr *ngFor="let dish of dishes">
-    <td><b>{{dish.name}}</b></td>
+    <td>{{dish.name}}</td>
     <td>{{dish.description}}</td>
     <td>{{dish.price}} zł</td>
-    <td>{{dish.isAvailable}}</td>
+    <td *ngIf="dish.isAvailable">dostępny</td>
+    <td *ngIf="!dish.isAvailable">niedostępny</td>
     <td>
-      <button>Podgląd</button>
+      <button (click)="showDish(dish)">Podgląd</button>
+    </td>
+  </tr>
+</table>
+
+<table class="dish" *ngIf="dishToShow">
+  <tr>
+    <th>Nazwa</th>
+    <th>Opis</th>
+    <th>Cena</th>
+    <th>Dostępność</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>{{dishToShow.name}}</td>
+    <td>{{dishToShow.description}}</td>
+    <td>{{dishToShow.price}} zł</td>
+    <td *ngIf="dishToShow.isAvailable">dostępny</td>
+    <td *ngIf="!dishToShow.isAvailable">niedostępny</td>
+    <td>
+      <button (click)="changeAvailability()">Zmień dostępność</button>
     </td>
   </tr>
 </table>
