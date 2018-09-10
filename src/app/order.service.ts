@@ -51,6 +51,7 @@ export class OrderService {
       dishesIds.push(this.dishes[i].id);
     }
     order.dishIds = dishesIds;
+    order.status
     this.isOrderFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
   }

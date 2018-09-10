@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class LoginService implements OnDestroy {
   sub: Subscription;
+  adminLogged = false;
 
   constructor(readonly http: HttpClient, public router: Router) {
   }
@@ -22,6 +23,7 @@ export class LoginService implements OnDestroy {
       users = res;
       console.log(res);
       if (users.length !== 0) {
+        this.adminLogged = true;
         this.router.navigate(['/admin']);
       } else {
         alert("złe dane do logowania");

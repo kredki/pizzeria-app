@@ -12,9 +12,9 @@ const routes: Routes = [
   {path: 'dishes/:type', component: MenuComponent},
   {path: 'menu', component: AppComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'admin/dishes', component: AdminDishesComponent},
-  {path: 'admin/orders', component: AdminOrdersComponent}
+  {path: 'admin', component: AdminComponent,
+  children: [{path: 'dishes', component: AdminDishesComponent, outlet: 'admin'},
+    {path: 'orders', component: AdminOrdersComponent, outlet: 'admin'}]}
 
 ];
 

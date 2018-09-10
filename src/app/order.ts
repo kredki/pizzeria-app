@@ -9,4 +9,5 @@ export class Order {
   street: string;
   flat: string;
   floor: string;
+  status: string;
 }

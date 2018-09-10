@@ -1,6 +1,9 @@
-<nav>
-  <button routerLink="dishes">Lista dań</button>
-  <button routerLink="orders">Zamówienia</button>
-  <button>Wyloguj</button>
-</nav>
-<router-outlet name="admin"></router-outlet>
+<section>
+  <nav>
+    <button (click)="showDishList()">Lista dań</button>
+    <button (click)="showOrderList()">Zamówienia</button>
+    <button>Wyloguj</button>
+  </nav>
+  <app-admin-dishes *ngIf="isDishListShown"></app-admin-dishes>
+  <app-admin-orders *ngIf="isOrderListShown"></app-admin-orders>
+</section>
