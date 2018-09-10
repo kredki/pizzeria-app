@@ -1,0 +1,44 @@
+.admin-dishes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.admin-dishes tr {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+
+.admin-dishes th {
+  background-color: lightgray;
+}
+
+.dishToShow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dishToShow tr {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+
+.dishToShow th {
+  background-color: lightgray;
+}
+
+button {
+  background-color: red;
+  color: white;
+}

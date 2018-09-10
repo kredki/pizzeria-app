@@ -1,0 +1,44 @@
+.admin-orders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.admin-orders tr {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+
+.admin-orders th {
+  background-color: lightgray;
+}
+
+.orderToShow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.orderToShow tr {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+
+.orderToShow th {
+  background-color: lightgray;
+}
+
+button {
+  background-color: red;
+  color: white;
+}

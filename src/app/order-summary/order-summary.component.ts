@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OrderService} from '../order.service';
 import {Order} from '../order';
 
@@ -13,7 +13,7 @@ export class OrderSummaryComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   sendOrder() {
-    this.orderService.sendOrder(this.order).subscribe();
+    this.orderService.sendOrder(this.order).subscribe(x => alert('Dodano zamówienie'));
   }
 
   ngOnInit() {

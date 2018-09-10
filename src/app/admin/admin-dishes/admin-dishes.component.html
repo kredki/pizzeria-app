@@ -1,5 +1,6 @@
 <table class="admin-dishes">
   <tr>
+    <th>Id</th>
     <th>Nazwa</th>
     <th>Opis</th>
     <th>Cena</th>
@@ -7,6 +8,7 @@
     <th></th>
   </tr>
   <tr *ngFor="let dish of dishes">
+    <td>{{dish.id}}</td>
     <td>{{dish.name}}</td>
     <td>{{dish.description}}</td>
     <td>{{dish.price}} zł</td>
@@ -18,8 +20,9 @@
   </tr>
 </table>
 
-<table class="dish" *ngIf="dishToShow">
+<table class="dishToShow" *ngIf="dishToShow">
   <tr>
+    <th>Id</th>
     <th>Nazwa</th>
     <th>Opis</th>
     <th>Cena</th>
@@ -27,6 +30,7 @@
     <th></th>
   </tr>
   <tr>
+    <td>{{dishToShow.id}}</td>
     <td>{{dishToShow.name}}</td>
     <td>{{dishToShow.description}}</td>
     <td>{{dishToShow.price}} zł</td>
