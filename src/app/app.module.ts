@@ -11,6 +11,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
+import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AdminDishesComponent } from './admin/admin-dishes/admin-dishes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AdminComponent } from './admin/admin.component';
     OrderComponent,
     OrderSummaryComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    AdminOrdersComponent,
+    AdminDishesComponent
   ],
   imports: [
     BrowserModule,

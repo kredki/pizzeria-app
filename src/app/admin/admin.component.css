@@ -1,0 +1,14 @@
+nav > button {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  color: white;
+  background-color: gray;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
