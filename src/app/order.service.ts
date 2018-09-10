@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Dish} from './dish';
 import {Order} from './order';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -11,6 +11,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrderService {
   dishes: Dish[] = [];
   cost = 0;
@@ -51,8 +52,12 @@ export class OrderService {
       dishesIds.push(this.dishes[i].id);
     }
     order.dishIds = dishesIds;
-    order.status
+    order.status = 'accepted';
     this.isOrderFinished = false;
     return this.http.post<Order>('/api/orders', order, httpOptions);
+  }
+
+  getAllOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('/api/orders');
   }
 }

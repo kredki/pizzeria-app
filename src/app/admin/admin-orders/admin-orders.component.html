@@ -1,3 +1,32 @@
-<p>
-  admin-orders works!
-</p>
+<table class="admin-orders">
+  <tr>
+    <th>Id</th>
+    <th>Status</th>
+    <th>Id produktów</th>
+    <th>Ulica</th>
+    <th>Nr</th>
+    <th>Piętro</th>
+    <th>Miasto</th>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Tel.</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let order of orders">
+    <td>{{order.id}}</td>
+    <td><b>{{order.status}}</b></td>
+    <td>{{order.dishIds}}</td>
+    <td>{{order.street}}</td>
+    <td>{{order.flat}}</td>
+    <td>{{order.floor}}</td>
+    <td>{{order.city}}</td>
+    <td>{{order.lastName}}</td>
+    <td>{{order.firstName}}</td>
+    <td>{{order.telephone}}</td>
+    <td>{{order.email}}</td>
+    <td>
+      <button>Podgląd</button>
+    </td>
+  </tr>
+</table>

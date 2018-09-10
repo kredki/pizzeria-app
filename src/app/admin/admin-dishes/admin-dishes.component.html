@@ -1,3 +1,18 @@
-<p>
-  admin-dishes works!
-</p>
+<table class="admin-dishes">
+  <tr>
+    <th>Nazwa</th>
+    <th>Opis</th>
+    <th>Cena</th>
+    <th>Dostępność</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let dish of dishes">
+    <td><b>{{dish.name}}</b></td>
+    <td>{{dish.description}}</td>
+    <td>{{dish.price}} zł</td>
+    <td>{{dish.isAvailable}}</td>
+    <td>
+      <button>Podgląd</button>
+    </td>
+  </tr>
+</table>

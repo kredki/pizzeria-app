@@ -11,6 +11,10 @@ export class DishService {
 
   constructor(readonly http: HttpClient) { }
 
+  getAllDishes(): Observable<Dish[]> {
+    return this.http.get<Dish[]>('/api/dishes');
+  }
+
   getDishes(): Observable<Dish[]> {
     return this.http.get<Dish[]>('/api/dishes').pipe(
       map(x => x.filter(y => y.isAvailable))
