@@ -38,8 +38,7 @@ describe('LoginService', () => {
       expect(service.adminLogged).toBeTruthy();
       service.adminLogged = false;
     });
-  )
-};
+  }));
 
   it('should check correct login', fakeAsync(() => {
     inject([LoginService], (service: LoginService) => {
@@ -66,6 +65,5 @@ describe('LoginService', () => {
       expect(service.adminLogged).toBeFalsy();
       service.adminLogged = false;
     });
-  )
-};
+  }));
 });
