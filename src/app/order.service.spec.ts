@@ -1,11 +1,12 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { OrderService } from './order.service';
+import {OrderService} from './order.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('OrderService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [OrderService]
+      providers: [OrderService, HttpClient, HttpHandler]
     });
   });
 

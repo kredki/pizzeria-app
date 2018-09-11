@@ -1,11 +1,12 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
-import { DishService } from './dish.service';
+import {DishService} from './dish.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
 
 describe('DishService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DishService]
+      providers: [DishService, HttpClient, HttpHandler]
     });
   });
 

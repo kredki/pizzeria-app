@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminComponent } from './admin.component';
+import {AdminComponent} from './admin.component';
+import {HttpClient, HttpHandler} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
+import {Component} from '@angular/core';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,7 +11,9 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      declarations: [ AdminComponent, MockAdminDishesComponent, MockAdminOrdersComponent ],
+      providers: [HttpClient, HttpHandler],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));
@@ -23,3 +28,18 @@ describe('AdminComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({
+  selector: 'app-admin-dishes',
+  template: ''
+})
+class MockAdminDishesComponent {
+}
+
+
+@Component({
+  selector: 'app-admin-orders',
+  template: ''
+})
+class MockAdminOrdersComponent {
+}
