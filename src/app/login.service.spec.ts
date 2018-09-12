@@ -40,7 +40,7 @@ describe('LoginService', () => {
     });
   }));
 
-  it('should check correct login', fakeAsync(() => {
+  it('should check incorrect pass', fakeAsync(() => {
     inject([LoginService], (service: LoginService) => {
       //given
       const userData: UserData = new UserData();
@@ -55,6 +55,8 @@ describe('LoginService', () => {
 
       const observableUserData = of(userDataInDB);
       const getSpy = spyOn(service.http, 'get').and.returnValue(observableUserData);
+      spyOn(window, 'alert').and.callFake(function(x) {
+      });
 
       //when
       service.checkLogin(userData.name, userData.password);
@@ -63,6 +65,7 @@ describe('LoginService', () => {
       expect(getSpy).toHaveBeenCalledWith('/api/users');
       tick();
       expect(service.adminLogged).toBeFalsy();
+      expect(window.alert).toHaveBeenCalledWith('a message');
       service.adminLogged = false;
     });
   }));
