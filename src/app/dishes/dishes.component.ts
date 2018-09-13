@@ -46,6 +46,31 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
     this.orderService.addToOrder(dish);
   }
 
+  sortByName() {
+    this.dishes.sort(function(a, b) {
+      const textA = a.name.toUpperCase();
+      const textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  }
+
+  sortByDescrption() {
+    this.dishes.sort(function(a, b) {
+      const textA = a.description.toUpperCase();
+      const textB = b.description.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  }
+
+  sortByPrice() {
+    this.dishes.sort(function(a, b) {
+      const numberA = a.price;
+      const numberB = b.price;
+      return (numberA < numberB) ? -1 : (numberA > numberB) ? 1 : 0;
+    });
+  }
+
+
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const type = params.get('type');

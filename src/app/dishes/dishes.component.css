@@ -30,3 +30,9 @@
   border-radius: 50%;
   text-align: center;
 }
+
+.dishes th button {
+  height: auto;
+  width: auto;
+  border-radius: 0;
+}
