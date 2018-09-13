@@ -145,4 +145,46 @@ describe('DishesComponent', () => {
     expect(component.dishes).toBe(dishes);
   });
 
+  it('should sort by name', () => {
+    //given
+    const dishesToSort: Dish[] = [{id: 1, name: 'b', isAvailable: true, description: 'desc', type: 'pizza', price: 1},
+      {id: 1, name: 'a', isAvailable: true, description: 'desc', type: 'pizza', price: 1}];
+    component.dishes = dishesToSort;
+
+    //when
+    component.sortByName();
+
+    //then
+    expect(component.dishes[0].name).toBe('a');
+    component.dishes = [];
+  });
+
+  it('should sort by desription', () => {
+    //given
+    const dishesToSort: Dish[] = [{id: 1, name: 'dish', isAvailable: true, description: 'b', type: 'pizza', price: 1},
+      {id: 1, name: 'dish', isAvailable: true, description: 'a', type: 'pizza', price: 1}];
+    component.dishes = dishesToSort;
+
+    //when
+    component.sortByDescrption();
+
+    //then
+    expect(component.dishes[0].description).toBe('a');
+    component.dishes = [];
+  });
+
+  it('should sort by desription', () => {
+    //given
+    const dishesToSort: Dish[] = [{id: 1, name: 'dish', isAvailable: true, description: 'desc', type: 'pizza', price: 2},
+      {id: 1, name: 'dish', isAvailable: true, description: 'desc', type: 'pizza', price: 1}];
+    component.dishes = dishesToSort;
+
+    //when
+    component.sortByPrice();
+
+    //then
+    expect(component.dishes[0].price).toBe(1);
+    component.dishes = [];
+  });
+
 });

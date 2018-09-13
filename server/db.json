@@ -39,6 +39,14 @@
       "description": "Sos boloński z szynką i kukurydzą",
       "type": "spagetti",
       "price": 17.5
+    },
+    {
+      "id": 6,
+      "name": "Pizza Hawajska",
+      "isAvailable": true,
+      "description": "Sos, ser, ananas",
+      "type": "pizza",
+      "price": 11
     }
   ],
   "orders": [
