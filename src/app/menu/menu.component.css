@@ -24,22 +24,25 @@ nav > button {
 
 section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 #order {
   background-color: lightgray;
+  margin-right: 3px;
 }
 
 #dishes {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: row;
+  margin-left: 3px;
 }
 
 #order-summary {
   background-color: lightgray;
   display: flex;
   flex-direction: column;
+  margin-left: 3px;
 }

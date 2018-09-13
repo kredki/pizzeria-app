@@ -65,7 +65,7 @@ describe('LoginService', () => {
       expect(getSpy).toHaveBeenCalledWith('/api/users');
       tick();
       expect(service.adminLogged).toBeFalsy();
-      expect(window.alert).toHaveBeenCalledWith('a message');
+      expect(window.alert).toHaveBeenCalledWith('złe dane do logowania');
       service.adminLogged = false;
     });
   }));
