@@ -3,6 +3,8 @@ import {Order} from '../../order';
 import {OrderService} from '../../order.service';
 import {Subscription} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Dish} from '../../dish';
+import {DishService} from '../../dish.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,12 +19,19 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
   orders: Order[] = [];
   sub: Subscription;
   orderToShow: Order;
+  dishes: Dish[] = [];
 
-  constructor(private orderService: OrderService, readonly http: HttpClient) {
+  constructor(private orderService: OrderService, readonly http: HttpClient, private dishService: DishService) {
   }
 
   showOrder(order) {
     this.orderToShow = order;
+    this.dishes = [];
+    let i;
+    for(i = 0; i < this.orderToShow.dishIds.length; i++) {
+      this.sub = this.dishService.getDishById(this.orderToShow.dishIds[i])
+        .subscribe(res => this.dishes.push(res));
+    }
   }
 
   changeStatusToAccept() {

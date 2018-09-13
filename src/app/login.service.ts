@@ -1,4 +1,4 @@
-import {Injectable, OnDestroy, OnInit} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {UserData} from './user-data';
 import {HttpClient} from '@angular/common/http';
@@ -21,7 +21,6 @@ export class LoginService implements OnDestroy {
       map(x => x.filter(y => y.name === login && y.password === password))
     ).subscribe(res => {
       users = res;
-      console.log(res);
       if (users.length !== 0) {
         this.adminLogged = true;
         this.router.navigate(['/admin']);

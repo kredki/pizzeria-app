@@ -37,7 +37,7 @@
   <tr>
     <th>Id</th>
     <th>Status</th>
-    <th>Id produktów</th>
+    <th>Nazwy produktów</th>
     <th>Ulica</th>
     <th>Nr</th>
     <th>Piętro</th>
@@ -53,7 +53,7 @@
     <td *ngIf="orderToShow.status === 'accepted'">Przyjęte</td>
     <td *ngIf="orderToShow.status === 'delivered'">Dostarczone</td>
     <td *ngIf="orderToShow.status === 'send'">Wysłane</td>
-    <td>{{orderToShow.dishIds}}</td>
+    <td><div *ngFor="let dish of dishes">{{dish.name}}</div></td>
     <td>{{orderToShow.street}}</td>
     <td>{{orderToShow.flat}}</td>
     <td>{{orderToShow.floor}}</td>

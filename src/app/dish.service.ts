@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import { Dish } from './dish';
-import { Observable} from 'rxjs';
+import {Dish} from './dish';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
@@ -38,5 +38,11 @@ export class DishService {
       map(x => x.filter(y => y.isAvailable && y.type === 'pizza'))
     );
     return pizzas;
+  }
+
+  getDishById(id: number): Observable<Dish> {
+    return this.http.get<Dish[]>('/api/dishes').pipe(
+      map(x => x.filter(y => y.id === id)[0])
+    );
   }
 }
