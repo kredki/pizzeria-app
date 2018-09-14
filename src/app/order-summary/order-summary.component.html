@@ -1,11 +1,13 @@
 <form (ngSubmit)="sendOrder()" #loginForm="ngForm">
-  <p>Imie: <input type="text" name="firstName" [(ngModel)]="order.firstName"></p>
-  <p>Nazwisko: <input type="text" name="lastName" [(ngModel)]="order.lastName"></p>
-  <p>Telefon: <input type="text" name="telephone" [(ngModel)]="order.telephone"></p>
-  <p>Email: <input type="text" name="email" [(ngModel)]="order.email"></p>
-  <p>Miasto: <input type="text" name="city" [(ngModel)]="order.city"></p>
-  <p>Ulica: <input type="text" name="street" [(ngModel)]="order.street"></p>
-  <p>Lokal: <input type="text" name="flat" [(ngModel)]="order.flat"> Piętro: <input type="text" name="floor"
-                                                                              [(ngModel)]="order.floor"></p>
-  <button type="submit">Wyślij zamówienie</button>
+  <label>Imie: </label><input type="text" name="firstName" [(ngModel)]="order.firstName">
+  <label>Nazwisko: </label><input type="text" name="lastName" [(ngModel)]="order.lastName">
+  <label>Telefon: </label><input type="text" name="telephone" [(ngModel)]="order.telephone">
+  <label>Email: </label><input type="text" name="email" [(ngModel)]="order.email">
+  <label>Miasto: </label><input type="text" name="city" [(ngModel)]="order.city">
+  <label>Ulica: </label><input type="text" name="street" [(ngModel)]="order.street">
+  <label>Lokal: </label><input type="text" name="flat" [(ngModel)]="order.flat">
+  <label>Piętro:</label> <input type="text" name="floor" [(ngModel)]="order.floor">
+  <div>
+    <button type="submit">Wyślij zamówienie</button>
+  </div>
 </form>
