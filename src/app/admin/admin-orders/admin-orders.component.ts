@@ -20,6 +20,7 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
   sub: Subscription;
   orderToShow: Order;
   dishes: Dish[] = [];
+  timerId = null;
 
   constructor(private orderService: OrderService, readonly http: HttpClient, private dishService: DishService) {
   }
@@ -53,13 +54,22 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    const that = this;
     this.orderService.getAllOrders()
-      .subscribe(res => this.orders = res);
+     .subscribe(res => this.orders = res);
+    this.timerId = setInterval(() => {
+      this.orderService.getAllOrders()
+       .subscribe(res => this.orders = res);
+    }, 20000);
   }
 
   ngOnDestroy(): void {
     if (this.sub) {
       this.sub.unsubscribe();
+    }
+
+    if (this.timerId) {
+      clearInterval(this.timerId);
     }
   }
 }
