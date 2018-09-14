@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Dish} from '../dish';
 import {DishService} from '../dish.service';
 import {Subscription} from 'rxjs';
@@ -10,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './dishes.component.html',
   styleUrls: ['./dishes.component.css']
 })
-export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class DishesComponent implements OnInit, OnDestroy {
   dishes: Dish[] = [];
   sub: Subscription;
 
@@ -21,7 +21,7 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
 
   getDishes(): void {
     this.sub = this.dishService.getDishes()
-      .subscribe(res => {this.dishes = res; console.log(res); });
+      .subscribe(res => {this.dishes = res; });
   }
 
   getDrinks(): void {
@@ -32,7 +32,7 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
 
   getPizzas(): void {
     this.sub = this.dishService.getPizzas()
-      .subscribe(res => {this.dishes = res; console.log(res); });
+      .subscribe(res => {this.dishes = res; });
 
   }
 
@@ -89,13 +89,5 @@ export class DishesComponent implements OnInit, OnDestroy, OnChanges, AfterViewI
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
-  }
-
-  ngOnChanges() {
-    console.log(this.dishes);
-  }
-
-  ngAfterViewInit() {
-    // console.log(this.dishes);
   }
 }

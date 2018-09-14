@@ -47,6 +47,70 @@
       "description": "Sos, ser, ananas",
       "type": "pizza",
       "price": 11
+    },
+    {
+      "id": 7,
+      "name": "Spagetti Zdzicha",
+      "isAvailable": true,
+      "description": "Sos Zdzicha z szynką i kukurydzą",
+      "type": "spagetti",
+      "price": 12.5
+    },
+    {
+      "id": 8,
+      "name": "Kawa",
+      "isAvailable": true,
+      "description": "Czarna kawa",
+      "type": "drink",
+      "price": 15
+    },
+    {
+      "id": 8,
+      "name": "Cola",
+      "isAvailable": true,
+      "description": "Cola 4 litry",
+      "type": "drink",
+      "price": 8
+    },
+    {
+      "id": 9,
+      "name": "Pizza Zdzicha",
+      "isAvailable": true,
+      "description": "Sos, ser, pasztet",
+      "type": "pizza",
+      "price": 22
+    },
+    {
+      "id": 9,
+      "name": "Pizza Capriciosa",
+      "isAvailable": true,
+      "description": "Sos, ser, szynka, pieczarki",
+      "type": "pizza",
+      "price": 22
+    },
+    {
+      "id": 10,
+      "name": "Pizza Diego",
+      "isAvailable": true,
+      "description": "Sos, ser, boczek, pieczarki",
+      "type": "pizza",
+      "price": 18
+    },
+    {
+      "id": 11,
+      "name": "Pizza Rimini",
+      "isAvailable": true,
+      "description": "Sos, ser, boczek, pieczarki",
+      "type": "pizza",
+      "price": 18
+    },
+    {
+      "id": 12,
+      "name": "Pizza Capri",
+      "isAvailable": true,
+      "description": "Sos, ser, szynka, pieczarki, papryka",
+      "type": "pizza",
+      "price": 26
     }
   ],
   "orders": [
