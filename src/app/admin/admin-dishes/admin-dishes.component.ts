@@ -40,13 +40,21 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
 
   addDish() {
     this.http.post<Dish>('/api/dishes', this.dishToAdd, httpOptions).subscribe();
+    this.getDishes();
+  }
+
+  deleteDish(dish: Dish) {
+    this.dishService.deleteDish(dish);
+    this.getDishes();
+  }
+
+  getDishes() {
     this.sub = this.dishService.getAllDishes()
       .subscribe(res => this.dishes = res);
   }
 
   ngOnInit() {
-    this.sub = this.dishService.getAllDishes()
-      .subscribe(res => this.dishes = res);
+    this.getDishes();
   }
 
   ngOnDestroy(): void {

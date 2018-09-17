@@ -111,6 +111,20 @@
       "description": "Sos, ser, szynka, pieczarki, papryka",
       "type": "pizza",
       "price": 26
+    },
+    {
+      "isAvailable": false,
+      "name": "Super Pizza",
+      "description": "Kijowa pizza",
+      "price": 12,
+      "id": 13
+    },
+    {
+      "name": "Super pizza 2",
+      "description": "Kijowa pizza 2",
+      "price": 12,
+      "isAvailable": true,
+      "id": 14
     }
   ],
   "orders": [

@@ -16,6 +16,7 @@
     <td *ngIf="!dish.isAvailable">niedostępny</td>
     <td>
       <button (click)="showDish(dish)">Podgląd</button>
+      <button (click)="deleteDish(dish)">Usuń</button>
     </td>
   </tr>
 </table>
@@ -58,12 +59,12 @@
 
     <tr>
       <td>{{dishToAdd.id}}</td>
-      <td><input name="name" [(ngModel)]="dishToAdd.name"></td>
-      <td><input name="description" [(ngModel)]="dishToAdd.description"></td>
-      <td><input name="price" type="number" [(ngModel)]="dishToAdd.price"> zł</td>
+      <td><input name="name" [(ngModel)]="dishToAdd.name" required></td>
+      <td><input name="description" [(ngModel)]="dishToAdd.description" required></td>
+      <td><input name="price" type="number" [(ngModel)]="dishToAdd.price" required> zł</td>
       <td><input type="checkbox" name="isAvailable" [(ngModel)]="dishToAdd.isAvailable"></td>
       <td>
-        <button type="submit">Dodaj</button>
+        <button type="submit" [disabled]="!dishToAddForm.form.valid">Dodaj</button>
       </td>
     </tr>
   </table>

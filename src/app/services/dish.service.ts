@@ -45,4 +45,8 @@ export class DishService {
       map(x => x.filter(y => y.id === id)[0])
     );
   }
+
+  deleteDish(dish: Dish) {
+    this.http.delete<Dish[]>('/api/dishes/' + dish.id).subscribe();
+  }
 }
