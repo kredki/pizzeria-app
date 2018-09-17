@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Dish} from './dish';
+import {Dish} from '../models/dish';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';

@@ -2,8 +2,8 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 
 import {DishesComponent} from './dishes.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {DishService} from '../dish.service';
-import {Dish} from '../dish';
+import {DishService} from '../services/dish.service';
+import {Dish} from '../models/dish';
 import {of, Subject} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ActivatedRoute, ParamMap, Params} from '@angular/router';

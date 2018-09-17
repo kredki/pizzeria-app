@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Dish} from '../../dish';
-import {DishService} from '../../dish.service';
+import {Dish} from '../../models/dish';
+import {DishService} from '../../services/dish.service';
 import {Subscription} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {LoginService} from '../../login.service';
+import {LoginService} from '../../services/login.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -33,7 +33,6 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   }
 
   updateDish() {
-    console.log(this.dishToShow);
     const id = this.dishToShow.id;
     this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
   }

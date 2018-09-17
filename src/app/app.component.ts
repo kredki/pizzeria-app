@@ -1,6 +1,4 @@
-import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
-import {DishesComponent} from './dishes/dishes.component';
-import {DishService} from './dish.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

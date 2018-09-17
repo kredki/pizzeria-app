@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Dish} from './dish';
-import {Order} from './order';
+import {Dish} from '../models/dish';
+import {Order} from '../models/order';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 

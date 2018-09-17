@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Dish} from '../dish';
-import {DishService} from '../dish.service';
+import {Dish} from '../models/dish';
+import {DishService} from '../services/dish.service';
 import {Subscription} from 'rxjs';
-import {OrderService} from '../order.service';
+import {OrderService} from '../services/order.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
