@@ -1,8 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Dish} from '../models/dish';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +52,14 @@ export class DishService {
 
   deleteDish(dish: Dish) {
     this.http.delete<Dish[]>('/api/dishes/' + dish.id).subscribe();
+  }
+
+  updateDish(dish: Dish) {
+    const id = dish.id;
+    this.http.put<Dish>('/api/dishes/' + id, dish, httpOptions).subscribe();
+  }
+
+  addDish(dish: Dish) {
+    this.http.post<Dish>('/api/dishes', dish, httpOptions).subscribe();
   }
 }

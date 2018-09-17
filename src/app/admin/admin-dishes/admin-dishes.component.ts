@@ -29,17 +29,15 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
 
   changeAvailability() {
     this.dishToShow.isAvailable = !this.dishToShow.isAvailable;
-    const id = this.dishToShow.id;
-    this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
+    this.dishService.updateDish(this.dishToShow);
   }
 
   updateDish() {
-    const id = this.dishToShow.id;
-    this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
+    this.dishService.updateDish(this.dishToShow);
   }
 
   addDish() {
-    this.http.post<Dish>('/api/dishes', this.dishToAdd, httpOptions).subscribe();
+    this.dishService.addDish(this.dishToAdd);
     this.getDishes();
   }
 
