@@ -42,3 +42,24 @@ button {
   background-color: red;
   color: white;
 }
+
+
+.dishToAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dishToAdd tr {
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  border-radius: 4px;
+}
+
+.dishToAdd th {
+  background-color: lightgray;
+}

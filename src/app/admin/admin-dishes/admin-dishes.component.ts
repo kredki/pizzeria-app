@@ -18,6 +18,7 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   dishes: Dish[] = [];
   sub: Subscription;
   dishToShow: Dish;
+  dishToAdd: Dish = new Dish();
 
   constructor(private dishService: DishService, readonly http: HttpClient, public loginService: LoginService) {
   }
@@ -35,6 +36,12 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   updateDish() {
     const id = this.dishToShow.id;
     this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
+  }
+
+  addDish() {
+    this.http.post<Dish>('/api/dishes', this.dishToAdd, httpOptions).subscribe();
+    this.sub = this.dishService.getAllDishes()
+      .subscribe(res => this.dishes = res);
   }
 
   ngOnInit() {

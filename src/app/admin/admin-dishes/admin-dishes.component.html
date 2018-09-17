@@ -20,27 +20,51 @@
   </tr>
 </table>
 
-<table class="dishToShow" *ngIf="dishToShow">
-  <tr>
-    <th>Id</th>
-    <th>Nazwa</th>
-    <th>Opis</th>
-    <th>Cena</th>
-    <th>Dostępność</th>
-    <th></th>
-  </tr>
-  <form (ngSubmit)="updateDish()" #dishForm="ngForm">
-  <tr>
-    <td>{{dishToShow.id}}</td>
-    <td><input name="name" [(ngModel)]="dishToShow.name"></td>
-    <td><input name="description" [(ngModel)]="dishToShow.description"></td>
-    <td><input name="price" type="number" [(ngModel)]="dishToShow.price"> zł</td>
-    <td *ngIf="dishToShow.isAvailable">dostępny</td>
-    <td *ngIf="!dishToShow.isAvailable">niedostępny</td>
-    <td>
-      <button (click)="changeAvailability()">Zmień dostępność</button>
-      <button type="submit">Zmień dane</button>
-    </td>
-  </tr>
-  </form>
-</table>
+<form (ngSubmit)="updateDish()" #dishForm="ngForm">
+  <table class="dishToShow" *ngIf="dishToShow">
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Opis</th>
+      <th>Cena</th>
+      <th>Dostępność</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>{{dishToShow.id}}</td>
+      <td><input name="name" [(ngModel)]="dishToShow.name"></td>
+      <td><input name="description" [(ngModel)]="dishToShow.description"></td>
+      <td><input name="price" type="number" [(ngModel)]="dishToShow.price"> zł</td>
+      <td *ngIf="dishToShow.isAvailable">dostępny</td>
+      <td *ngIf="!dishToShow.isAvailable">niedostępny</td>
+      <td>
+        <button (click)="changeAvailability()">Zmień dostępność</button>
+        <button type="submit">Zmień dane</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<form (ngSubmit)="addDish()" #dishToAddForm="ngForm">
+  <table class="dishToAdd">
+    <tr>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Opis</th>
+      <th>Cena</th>
+      <th>Dostępność</th>
+      <th></th>
+    </tr>
+
+    <tr>
+      <td>{{dishToAdd.id}}</td>
+      <td><input name="name" [(ngModel)]="dishToAdd.name"></td>
+      <td><input name="description" [(ngModel)]="dishToAdd.description"></td>
+      <td><input name="price" type="number" [(ngModel)]="dishToAdd.price"> zł</td>
+      <td><input type="checkbox" name="isAvailable" [(ngModel)]="dishToAdd.isAvailable"></td>
+      <td>
+        <button type="submit">Dodaj</button>
+      </td>
+    </tr>
+  </table>
+</form>
