@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {LoginService} from '../../login.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Component({
@@ -19,7 +19,8 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
   sub: Subscription;
   dishToShow: Dish;
 
-  constructor(private dishService: DishService, readonly http: HttpClient, public loginService: LoginService) { }
+  constructor(private dishService: DishService, readonly http: HttpClient, public loginService: LoginService) {
+  }
 
   showDish(dish: Dish) {
     this.dishToShow = dish;
@@ -27,6 +28,12 @@ export class AdminDishesComponent implements OnInit, OnDestroy {
 
   changeAvailability() {
     this.dishToShow.isAvailable = !this.dishToShow.isAvailable;
+    const id = this.dishToShow.id;
+    this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
+  }
+
+  updateDish() {
+    console.log(this.dishToShow);
     const id = this.dishToShow.id;
     this.http.put<Dish>('/api/dishes/' + id, this.dishToShow, httpOptions).subscribe();
   }
