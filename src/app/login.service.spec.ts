@@ -7,7 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {UserData} from './user-data';
 import {of} from 'rxjs';
 
-describe('LoginService', () => {
+fdescribe('LoginService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LoginService, HttpClient, HttpHandler],
@@ -26,21 +26,20 @@ describe('LoginService', () => {
       userData.id = 1;
       userData.name = 'admin';
       userData.password = 'pass';
-      const observableUserData = of(userData);
-      const getSpy = spyOn(service.http, 'get').and.returnValue(observableUserData);
+      const observableUserData = of([userData]);
+      const getSpy = spyOn(service, 'getUsers').and.returnValue(observableUserData);
 
       //when
-      service.checkLogin(userData.name, userData.password);
+      const returnedUserData = service.checkLogin(userData.name, userData.password);
 
       //then
-      expect(getSpy).toHaveBeenCalledWith('/api/users');
+      expect(getSpy).toHaveBeenCalled();
       tick();
-      expect(service.adminLogged).toBeTruthy();
-      service.adminLogged = false;
+      expect(returnedUserData).toBe(observableUserData);
     });
   }));
 
-  it('should check incorrect pass', fakeAsync(() => {
+  it('should check incorrect login', fakeAsync(() => {
     inject([LoginService], (service: LoginService) => {
       //given
       const userData: UserData = new UserData();
@@ -53,20 +52,17 @@ describe('LoginService', () => {
       userDataInDB.name = 'admin';
       userDataInDB.password = 'pass';
 
-      const observableUserData = of(userDataInDB);
-      const getSpy = spyOn(service.http, 'get').and.returnValue(observableUserData);
-      spyOn(window, 'alert').and.callFake(function(x) {
-      });
+      const observableUserData = of([userDataInDB]);
+      const getSpy = spyOn(service, 'getUsers').and.returnValue(observableUserData);
 
       //when
-      service.checkLogin(userData.name, userData.password);
+      const returnedUserData = service.checkLogin(userData.name, userData.password);
 
       //then
-      expect(getSpy).toHaveBeenCalledWith('/api/users');
+      expect(getSpy).toHaveBeenCalled();
       tick();
-      expect(service.adminLogged).toBeFalsy();
-      expect(window.alert).toHaveBeenCalledWith('złe dane do logowania');
-      service.adminLogged = false;
+      expect(returnedUserData).toBe(of([]));
     });
   }));
+
 });

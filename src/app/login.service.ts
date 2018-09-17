@@ -1,36 +1,27 @@
-import {Injectable, OnDestroy} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {UserData} from './user-data';
 import {HttpClient} from '@angular/common/http';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService implements OnDestroy {
+export class LoginService {
   sub: Subscription;
   adminLogged = false;
 
   constructor(readonly http: HttpClient, public router: Router) {
   }
 
-  checkLogin(login: string, password: string) {
-    let users: UserData[] = [];
-    this.sub = this.http.get<UserData[]>('/api/users').pipe(
+  checkLogin(login: string, password: string): Observable<UserData[]> {
+    return this.getUsers().pipe(
       map(x => x.filter(y => y.name === login && y.password === password))
-    ).subscribe(res => {
-      users = res;
-      if (users.length !== 0) {
-        this.adminLogged = true;
-        this.router.navigate(['/admin']);
-      } else {
-        alert("złe dane do logowania");
-      }
-    });
+    );
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+  public getUsers() {
+    return this.http.get<UserData[]>('/api/users');
   }
 }
